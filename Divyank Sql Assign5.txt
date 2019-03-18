@@ -1,0 +1,37 @@
+Q1
+Select student_id,faculty_id from student_status where student_id in (Select student_id from studentdetails where student_name like'S%');
+
+Q2
+Select faculty_id from student_status where student_id in (select student_id from studentdetails where student_location='Mumbai' and student_name not like '%A%');
+
+Q3
+Select faculty_id,faculty_rating from faculty_feedback where module_id='J2EE');
+
+Q4
+Insert into facultydetails Select * from faculty_Lstatus; 
+
+Q5
+Update facultydetails Set faculty_location ='Chennai' where faculty_id in (Select faculty_id from faculty_LStatus where faculty_experience>10); 
+
+Q6
+Delete from facultydetails where faculty_experience in (Select faculty_experience from faculty_LStatus where faculty_experience>12); 
+
+Q7
+Select * from faculty_Lstatus where exists (Select * from facultydetails where faculty_Lstatus.faculty_id=facultydetails.faculty_id);
+
+Q8
+Select f.faculty_id, b.batch_id from facultydetails f cross join batchdetails b;
+
+Q9
+Select * from student_status s inner join batch_info b where s.batch_id=b.batch_id;
+
+Q10
+Select student_id from student_status s right outer join facultydetails f on s.faculty_id=f.faculty_id;
+
+Q11
+Select student_id from student_status s left outer join facultydetails f on s.faculty_id=f.faculty_id;
+
+Q12
+Select student_id from student_status s right outer join facultydetails f on s.faculty_id=f.faculty_id;
+UNION
+Select student_id from student_status s left outer join facultydetails f on s.faculty_id=f.faculty_id;  
